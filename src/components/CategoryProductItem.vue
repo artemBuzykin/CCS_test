@@ -3,7 +3,8 @@
         <div class="category-item__product-content">
             <div class="category-item__product-title">{{ local_product.title }} ({{ local_product.max_count }})</div>
             <div class="category-item__product-price" :class="changedPrice">
-                Цена: {{ local_product.price_rub | price_format }} &#8381;
+                Цена: {{ initial_product.price_rub | price_format }}
+                {{ local_product.price_rub | price_format }} &#8381;
             </div>
         </div>
         <div class="category-item__product-actions">
@@ -51,11 +52,24 @@
             },
             changedPrice() {
                 let class_name = '';
-                if (this.local_product.price_rub > this.initial_product.price_rub) {
+                if (
+                    Math.round(parseFloat(this.local_product.price_rub) * 100) / 100 >
+                    Math.round(parseFloat(this.initial_product.price_rub) * 100) / 100
+                ) {
                     class_name = 'rise';
-                } else if (this.local_product.price_rub < this.initial_product.price_rub) {
+                }
+                // if (this.local_product.price_rub > this.initial_product.price_rub) {
+                // class_name = 'rise';
+                // }
+                else if (
+                    Math.round(parseFloat(this.local_product.price_rub) * 100) / 100 <
+                    Math.round(parseFloat(this.initial_product.price_rub) * 100) / 100
+                ) {
                     class_name = 'down';
                 }
+                // else if (this.local_product.price_rub < this.initial_product.price_rub) {
+                //     class_name = 'down';
+                // }
                 return class_name;
             },
         },
