@@ -57,19 +57,12 @@
                     Math.round(parseFloat(this.initial_product.price_rub) * 100) / 100
                 ) {
                     class_name = 'rise';
-                }
-                // if (this.local_product.price_rub > this.initial_product.price_rub) {
-                // class_name = 'rise';
-                // }
-                else if (
+                } else if (
                     Math.round(parseFloat(this.local_product.price_rub) * 100) / 100 <
                     Math.round(parseFloat(this.initial_product.price_rub) * 100) / 100
                 ) {
                     class_name = 'down';
                 }
-                // else if (this.local_product.price_rub < this.initial_product.price_rub) {
-                //     class_name = 'down';
-                // }
                 return class_name;
             },
         },
