@@ -3,7 +3,7 @@
         <div class="category-item__product-content">
             <div class="category-item__product-title">{{ local_product.title }} ({{ local_product.max_count }})</div>
             <div class="category-item__product-price" :class="changedPrice">
-                Цена: {{ initial_product.price_rub | price_format }}
+                Цена:
                 {{ local_product.price_rub | price_format }} &#8381;
             </div>
         </div>
